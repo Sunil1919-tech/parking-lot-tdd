@@ -10,7 +10,19 @@ package com.bridgelabz;
  *
  ****************************************************************************************/
 public class ParkingLotSystem {
+    private Object vehicle;
+
     public boolean park(Object vehicle) {
+        this.vehicle = vehicle;
         return true;
+    }
+
+    public boolean UnPark(Object vehicle) {
+        if (this.vehicle.equals(vehicle)) {
+            this.vehicle = vehicle;
+            return true;
+        }
+        return false;
+
     }
 }
