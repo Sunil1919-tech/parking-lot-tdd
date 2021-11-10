@@ -13,24 +13,31 @@ public class ParkingLotSystem {
     private Object vehicle;
 
     public void park(Object vehicle) throws ParkingLotException {
-        if (this.vehicle != null)
+        if (this.vehicle == null)
+            this.vehicle =vehicle;
+        else if(this.vehicle.equals(vehicle))
             throw new  ParkingLotException("Parking Lot is Full");
-        this.vehicle = vehicle;
+
     }
 
     public boolean isVehicleParked(Object vehicle) {
-        if (this.vehicle.equals(vehicle))
-            return true;
-        return false;
+        return this.vehicle.equals(vehicle);
     }
 
-    public boolean unPark(Object vehicle) {
-        if (vehicle == null)
-            return false;
-        if (this.vehicle.equals(vehicle)) {
+    public void unPark(Object vehicle) throws ParkingLotException {
+        if (vehicle == null) {
+            throw new ParkingLotException("there is no vehicle to Unpark");
+        } else if (this.vehicle.equals(vehicle)) {
             this.vehicle = null;
-            return true;
+
         }
-        return false;
+
+    }
+
+    public boolean isVehicleUnParked(Object vehicle) {
+        return this.vehicle == null;
+    }
+    public boolean isParkingLotFull() {
+        return this.vehicle!=null;
     }
 }
