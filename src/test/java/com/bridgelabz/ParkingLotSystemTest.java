@@ -29,7 +29,7 @@ public class ParkingLotSystemTest {
     void givenAVehicle_WhenUnParked_ShouldReturnTrue() {
         try {
             parkingLotSystem.park(vehicle);
-            boolean isUnParked = parkingLotSystem.UnPark(vehicle);
+            boolean isUnParked = parkingLotSystem.unPark(vehicle);
             Assertions.assertTrue(isUnParked);
         } catch (ParkingLotException e) {
             e.printStackTrace();
@@ -47,4 +47,34 @@ public class ParkingLotSystemTest {
         }
     }
 
+    @Test
+    void givenAVehicle_WhenUParkedAnotherVehicle_ShouldReturnFalse() {
+        Object anotherVehicle = new Object();
+        try {
+            parkingLotSystem.park(vehicle);
+            boolean isParked = parkingLotSystem.isVehicleParked(anotherVehicle);
+            Assertions.assertFalse(isParked);
+        } catch (ParkingLotException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void givenAVehicle_WhenNotUnParked_ShouldReturnFalse() {
+        try {
+            parkingLotSystem.park(vehicle);
+            boolean isUnParked = parkingLotSystem.unPark(null);
+            Assertions.assertFalse(isUnParked);
+        } catch (ParkingLotException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void givenAVehicle_WhenUnParkedAnotherVehicle_ShouldReturnFalse() throws ParkingLotException {
+        Object anotherVehicle = new Object();
+        parkingLotSystem.park(vehicle);
+        boolean isUnParked = parkingLotSystem.unPark(anotherVehicle);
+        Assertions.assertFalse(isUnParked);
+    }
 }
