@@ -4,14 +4,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ParkingLotSystemTest {
-    ParkingLotSystem parkingLotSystem = null;
-    Object vehicle = null;
+ public class ParkingLotSystemTest {
+    ParkingLotSystem parkingLotSystem;
+    Object vehicle;
+    ParkingLotOwner owner;
 
     @BeforeEach
     public void setUp() throws Exception {
-        parkingLotSystem = new ParkingLotSystem();
+        parkingLotSystem = new ParkingLotSystem(1);
         vehicle = new Object();
+        owner = new ParkingLotOwner();
+        parkingLotSystem.registerOwner(owner);
     }
 
     @Test
@@ -38,12 +41,11 @@ public class ParkingLotSystemTest {
     }
 
     @Test
-    void givenAVehicle_WhenAlreadyParked_ShouldReturnFalse() {
+    void givenAVehicle_WhenAlreadyParked_ShouldThrowException() throws ParkingLotException {
         try {
             parkingLotSystem.park(vehicle);
-            parkingLotSystem.park(new Object());
         } catch (ParkingLotException e) {
-            Assertions.assertEquals("Parking Lot is Full", e.getMessage());
+            Assertions.assertEquals("Vehicle already Parked", e.getMessage());
             e.printStackTrace();
         }
     }
@@ -80,17 +82,22 @@ public class ParkingLotSystemTest {
     }
 
     @Test
-    void givenParkingLot_WhenFull_ShouldReturnTrue() throws ParkingLotException {
-        parkingLotSystem.park(vehicle);
-        boolean isFull =parkingLotSystem.isParkingLotFull();
-        Assertions.assertTrue(isFull);
+    void givenParkingLot_WhenFull_ShouldInformToOwner() {
+        ParkingLotOwner owner = new ParkingLotOwner();
+        parkingLotSystem.registerOwner(owner);
+        try {
+            parkingLotSystem.park(vehicle);
+            parkingLotSystem.park(new Object());
+        } catch (ParkingLotException e) {}
+            boolean isFull = owner.isParkingLotFull();
+            Assertions.assertTrue(isFull);
     }
 
     @Test
-    void givenParkingLot_WhenNotFull_ShouldReturnFalse() throws ParkingLotException {
-        parkingLotSystem.park(vehicle);
-        parkingLotSystem.unPark(vehicle);
-        boolean isEmpty = parkingLotSystem.isParkingLotFull();
-        Assertions.assertFalse(isEmpty);
+    void givenParkingLot_WhenNotFull_ShouldInformOwner() {
+        ParkingLotOwner owner = new ParkingLotOwner();
+        parkingLotSystem.registerOwner(owner);
+        boolean isNotFull = owner.isParkingLotFull();
+        Assertions.assertFalse(isNotFull);
     }
 }
