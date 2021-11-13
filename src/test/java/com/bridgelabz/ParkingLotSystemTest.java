@@ -111,6 +111,7 @@ public class ParkingLotSystemTest {
 
     }
 
+
     @Test
     void givenParkingLot_WhenFull_ShouldInformTheSecurity() {
         AirportSecurity airportSecurity = new AirportSecurity();
@@ -124,6 +125,7 @@ public class ParkingLotSystemTest {
             Assertions.assertTrue(isFull);
         }
     }
+
 
     @Test
     void givenWhenParkingLotIsNotFull_ShouldSecurity() {
