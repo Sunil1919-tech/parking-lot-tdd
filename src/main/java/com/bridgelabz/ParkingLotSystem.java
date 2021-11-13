@@ -1,5 +1,8 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /***************************************************************************************
  *
  * purpose --> ParkingLotSystem is class where we are going to create parkingLot system
@@ -10,10 +13,10 @@ package com.bridgelabz;
  *
  ****************************************************************************************/
 public class ParkingLotSystem {
-    private Object vehicle;
-    private ParkingLotOwner owner;
-    private int currentCapacity;
+    private List vehicles;
+    private List<ParkingLotObserver> observers;
     private int actualCapacity;
+    private Object vehicle;
 
 
     /**
@@ -22,64 +25,60 @@ public class ParkingLotSystem {
      * @param capacity parking lot capacity
      */
     public ParkingLotSystem(int capacity) {
-        this.currentCapacity = 0;
+        this.observers = new ArrayList<>();
+        this.vehicles = new ArrayList();
         this.actualCapacity = capacity;
     }
 
-    /***********************************************************************************************************
-     * purpose --> park is method for parking the vehicle ,if the parking lot is null it will going to park the
-     *              vehicle and if there is already a vehicle it will throw exception
-     *
-     * @param vehicle
-     * @throws ParkingLotException
-     ***********************************************************************************************************/
+    public void registerParkingLotObserver(ParkingLotObserver observer) {
+        this.observers.add(observer);
+    }
+
+    public void setCapacity(int capacity) {
+        this.actualCapacity = capacity;
+    }
+
     public void park(Object vehicle) throws ParkingLotException {
-        if (this.currentCapacity == this.actualCapacity) {
-            owner.capacityIsFull();
+        if (this.vehicles.size() == this.actualCapacity) {
+            for (ParkingLotObserver observer : observers) {
+                observer.capacityIsFull();
+            }
             throw new ParkingLotException("Parking Lot is Full");
         }
-        this.currentCapacity++;
-        this.vehicle = vehicle;
+        if (isVehicleParked(vehicle))
+            throw new ParkingLotException("vehicle already parked");
+        this.vehicles.add(vehicle);
     }
 
-    /*********************************************************************************************************
-     * boolean type to check whether vehicle is parked or not.
-     *
-     * @param vehicle
-     * @return returns True if there is a vehicle
-     * false if it is null
-     */
     public boolean isVehicleParked(Object vehicle) {
-        return this.vehicle.equals(vehicle);
+        if (this.vehicles.contains(vehicle))
+            return true;
+        return false;
     }
 
-    /***************************************************************************************************************
+    /**
      * purpose --> unPark is method for unParking the Vehicle, if there is already a parked vehicle then unPark will
-     *              be done. otherwise throws exception.
+     * be done. otherwise throws exception.
      *
      * @param vehicle
      * @throws ParkingLotException
-     **************************************************************************************************************/
-    public void unPark(Object vehicle) throws ParkingLotException {
-        if (vehicle == null) {
-            throw new ParkingLotException("there is no vehicle to UnPark");
-        } else if (this.vehicle.equals(vehicle)) {
-            this.vehicle = null;
+     */
+    public boolean unPark(Object vehicle) throws ParkingLotException {
+        if (vehicle == null)
+            return false;
+        if (this.vehicles.contains(vehicle)) {
+            this.vehicles.remove(vehicle);
+            return true;
         }
+        return false;
     }
 
-    /************************************************************************************************************
-     * boolean type to check vehicle is unParked or not.
-     *
-     * @param vehicle
-     * @return true if unParking Done
-     * otherwise false
-     **************************************************************************************************************/
     public boolean isVehicleUnParked(Object vehicle) {
-        return this.vehicle == null;
+        return !this.vehicles.contains(vehicle);
     }
 
-    public void registerOwner(ParkingLotOwner owner) {
-        this.owner = owner;
-    }
+//    public boolean isParkingLotFull() {
+//        return this.vehicles.size() == this.actualCapacity;
+//    }
+
 }
