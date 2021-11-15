@@ -101,7 +101,18 @@ public class ParkingLotSystem {
      * @return vehicle is unParked
      */
     public boolean isVehicleUnParked(Object vehicle) {
-        return !this.vehicles.contains(vehicle);
+        return this.vehicles.contains(vehicle);
     }
 
+    /**
+     * method to search required vehicle
+     * @param vehicle
+     * @return vehicle want to find
+     */
+    public Object searchVehicle(Object vehicle) {
+        if (vehicles.contains(vehicle)){
+            return vehicle;
+        }
+        return null;
+    }
 }

@@ -158,4 +158,12 @@ public class ParkingLotSystemTest {
         boolean isParked = parkingLotSystem.isVehicleParked(vehicle);
         Assertions.assertTrue(isParked);
     }
+
+    @Test
+    void givenAVehicle_WhenDriverWantsToFind_ShouldReturnTrue() throws ParkingLotException {
+        Object vehicleToFind = new Object();
+        parkingLotSystem.park(vehicle);
+        vehicleToFind = parkingLotSystem.searchVehicle(vehicle);
+        Assertions.assertEquals(vehicle, vehicleToFind);
+    }
 }
