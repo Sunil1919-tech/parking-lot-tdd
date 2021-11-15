@@ -20,8 +20,6 @@ public class ParkingLotSystem {
 
     /**
      * constructor to take capacity as input
-     *
-     * @param capacity parking lot capacity
      */
     public ParkingLotSystem(int capacity) {
         this.observers = new ArrayList<>();
