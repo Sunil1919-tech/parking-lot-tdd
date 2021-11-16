@@ -160,6 +160,15 @@ public class ParkingLotSystemTest {
     }
 
     @Test
+    void givenAParkingLotAttendant_WhenParked_ShouldReturnTrue() throws ParkingLotException {
+        ParkingLotAttendant parkingLotAttendant = new ParkingLotAttendant();
+        parkingLotSystem.park(vehicle);
+        parkingLotAttendant.attendantUnParked(vehicle);
+        boolean isUnParked = parkingLotSystem.isVehicleUnParked(vehicle);
+        Assertions.assertTrue(isUnParked);
+    }
+
+    @Test
     void givenAVehicle_WhenDriverWantsToFind_ShouldReturnTrue() throws ParkingLotException {
         Object vehicleToFind = new Object();
         parkingLotSystem.park(vehicle);

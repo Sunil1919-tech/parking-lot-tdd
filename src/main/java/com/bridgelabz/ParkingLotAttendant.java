@@ -18,4 +18,13 @@ public class ParkingLotAttendant {
     public void attendantParked(Object vehicle) throws ParkingLotException {
         parkingLotSystem.park(vehicle);
     }
+
+    /**
+     * method to Unpark the vehicle
+     * @param vehicle
+     * @throws ParkingLotException
+     */
+    public void attendantUnParked(Object vehicle) throws ParkingLotException {
+        parkingLotSystem.unPark(vehicle);
+    }
 }

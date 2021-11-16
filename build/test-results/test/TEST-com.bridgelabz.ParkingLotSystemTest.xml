@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.ParkingLotSystemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-11-15T01:39:42" hostname="LAPTOP-NGQU5TVV" time="0.045">
+<testsuite name="com.bridgelabz.ParkingLotSystemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-11-16T00:59:04" hostname="LAPTOP-NGQU5TVV" time="0.018">
   <properties/>
-  <testcase name="givenAVehicle_WhenDriverWantsToFind_ShouldReturnTrue()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.045"/>
+  <testcase name="givenAParkingLotAttendant_WhenParked_ShouldReturnTrue()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.018"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
