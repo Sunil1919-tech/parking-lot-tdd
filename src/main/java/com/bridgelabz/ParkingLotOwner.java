@@ -26,6 +26,10 @@ public class ParkingLotOwner implements ParkingLotObserver {
         isParkingLotFull = false;
     }
 
+    /**
+     * the method checks the parking lot has full whether the capacity exceeded
+     * @return boolean type , if the capacity full returns true
+     */
     public boolean isCapacityFull() {
         return this.isParkingLotFull;
     }
