@@ -1,7 +1,10 @@
 package com.bridgelabz;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /***************************************************************************************
  * purpose --> ParkingLotSystem is class where we are going to create parkingLot system
@@ -15,7 +18,7 @@ public class ParkingLotSystem {
     private static List vehicles;
     private List<ParkingLotObserver> observers;
     private int actualCapacity;
-
+    public static Map<Object, LocalDateTime> localDateTime = new HashMap<>();
 
     /**
      * @param capacity
@@ -117,5 +120,17 @@ public class ParkingLotSystem {
             return vehicle;
         }
         throw new ParkingLotException("there is no such vehicle", ParkingLotException.ExceptionType.VEHICLE_NOT_FOUND);
+    }
+
+    /**
+     * method to check the parking time and date
+     *
+     * @param vehicle Object that parked in lot with particular date and time
+     * @return time and date of parked vehicle
+     */
+    public static LocalDateTime parkingTime(Object vehicle) {
+        LocalDateTime present = LocalDateTime.now();
+        localDateTime.put(vehicle, present);
+        return present;
     }
 }

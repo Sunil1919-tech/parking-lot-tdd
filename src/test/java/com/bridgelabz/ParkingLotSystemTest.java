@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+
 public class ParkingLotSystemTest {
     ParkingLotSystem parkingLotSystem = null;
     Object vehicle = null;
@@ -175,5 +177,11 @@ public class ParkingLotSystemTest {
         parkingLotSystem.park(vehicle);
         Object vehicleToFind = parkingLotSystem.searchVehicle(vehicle);
         Assertions.assertEquals(vehicle, vehicleToFind);
+    }
+
+    @Test
+    void givenAVehicle_WhenParked_ShouldReturnDateAndTime() throws ParkingLotException {
+        parkingLotSystem.park(vehicle);
+        Assertions.assertEquals(LocalDateTime.now(), ParkingLotSystem.parkingTime(vehicle));
     }
 }
