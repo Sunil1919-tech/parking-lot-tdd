@@ -12,20 +12,20 @@ public class ParkingLotAttendant {
     /**
      * method to park the vehicle by attendant when capacity available
      *
-     * @param vehicle the object which is going to park by Attendant
+     * @param vehicle the Vehicle which is going to park by Attendant
      * @throws ParkingLotException throwable exception where there is no vehicle to park
      */
-    public void attendantParked(Object vehicle) throws ParkingLotException {
+    public void attendantParked(Vehicle vehicle) throws ParkingLotException {
         parkingLotSystem.park(vehicle);
     }
 
     /**
      * method to Unpark the vehicle by the Attendant
      *
-     * @param vehicle the object which is going to Unpark by Attendant
+     * @param vehicle the Vehicle which is going to Unpark by Attendant
      * @throws ParkingLotException throwable exception where there is no vehicle to UnPark
      */
-    public void attendantUnParked(Object vehicle) throws ParkingLotException {
+    public void attendantUnParked(Vehicle vehicle) throws ParkingLotException {
         parkingLotSystem.unPark(vehicle);
     }
 }

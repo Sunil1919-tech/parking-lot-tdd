@@ -8,12 +8,12 @@ import java.time.LocalDateTime;
 
 public class ParkingLotSystemTest {
     ParkingLotSystem parkingLotSystem = null;
-    Object vehicle = null;
+    Vehicle vehicle = null;
 
     @BeforeEach
     public void setUp() throws Exception {
         parkingLotSystem = new ParkingLotSystem(1);
-        vehicle = new Object();
+        vehicle = new Vehicle();
     }
 
     @Test
@@ -46,7 +46,7 @@ public class ParkingLotSystemTest {
 
     @Test
     void givenAVehicle_WhenParkedAnotherVehicle_ShouldThrowException() {
-        Object anotherVehicle = new Object();
+        Vehicle anotherVehicle = new Vehicle();
         try {
             parkingLotSystem.park(vehicle);
             parkingLotSystem.park(anotherVehicle);
@@ -64,7 +64,7 @@ public class ParkingLotSystemTest {
 
     @Test
     void givenAVehicle_WhenUnParkedAnotherVehicle_ShouldReturnFalse() throws ParkingLotException {
-        Object vehicle2 = new Object();
+        Vehicle vehicle2 = new Vehicle();
         parkingLotSystem.park(vehicle);
         try {
             parkingLotSystem.unPark(vehicle2);
@@ -85,7 +85,7 @@ public class ParkingLotSystemTest {
         parkingLotSystem.registerParkingLotObserver(owner);
         try {
             parkingLotSystem.park(vehicle);
-            parkingLotSystem.park(new Object());
+            parkingLotSystem.park(new Vehicle());
             boolean isFull = owner.isCapacityFull();
             Assertions.assertTrue(isFull);
         } catch (ParkingLotException e) {
@@ -104,7 +104,7 @@ public class ParkingLotSystemTest {
 
     @Test
     void givenCapacityIs2_ShouldAbleToPark2Vehicles() throws ParkingLotException {
-        Object vehicle2 = new Object();
+        Vehicle vehicle2 = new Vehicle();
         ParkingLotOwner owner = new ParkingLotOwner();
         parkingLotSystem.registerParkingLotObserver(owner);
         parkingLotSystem.setCapacity(2);
@@ -123,7 +123,7 @@ public class ParkingLotSystemTest {
         parkingLotSystem.registerParkingLotObserver(airportSecurity);
         try {
             parkingLotSystem.park(vehicle);
-            parkingLotSystem.park(new Object());
+            parkingLotSystem.park(new Vehicle());
             boolean isFull = airportSecurity.isCapacityFull();
             Assertions.assertTrue(isFull);
         } catch (ParkingLotException e) {
@@ -142,7 +142,7 @@ public class ParkingLotSystemTest {
 
     @Test
     void whenParkingLotHasSpaceAgainAfterFull_ShouldInformTheOwner() throws ParkingLotException {
-        Object vehicle2 = new Object();
+        Vehicle vehicle2 = new Vehicle();
         ParkingLotOwner owner = new ParkingLotOwner();
         parkingLotSystem.registerParkingLotObserver(owner);
         Assertions.assertThrows(ParkingLotException.class, () -> {
@@ -175,7 +175,7 @@ public class ParkingLotSystemTest {
     @Test
     void givenAVehicle_WhenDriverWantsToFind_ShouldReturnTrue() throws ParkingLotException {
         parkingLotSystem.park(vehicle);
-        Object vehicleToFind = parkingLotSystem.searchVehicle(vehicle);
+        Vehicle vehicleToFind = parkingLotSystem.searchVehicle(vehicle);
         Assertions.assertEquals(vehicle, vehicleToFind);
     }
 

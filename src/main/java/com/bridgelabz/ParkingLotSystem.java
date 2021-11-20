@@ -18,14 +18,16 @@ public class ParkingLotSystem {
     private static List vehicles;
     private List<ParkingLotObserver> observers;
     private int actualCapacity;
-    public static Map<Object, LocalDateTime> localDateTime = new HashMap<>();
+    public static Map<Vehicle, LocalDateTime> localDateTime = new HashMap<>();
 
     /**
-     * @param capacity
+     * constructor declared with list of objects,ie observer and vehicles list
+     *
+     * @param capacity intitializing the capacity of parking lot
      */
     public ParkingLotSystem(int capacity) {
         this.observers = new ArrayList<>();
-        this.vehicles = new ArrayList();
+        this.vehicles = new ArrayList<>();
         this.actualCapacity = capacity;
 
     }
@@ -55,7 +57,7 @@ public class ParkingLotSystem {
      * @param vehicle it is parameter that has parking lot system vehicle object
      * @throws ParkingLotException throws if there is already a vehicle parked/parking lot full
      */
-    public void park(Object vehicle) throws ParkingLotException {
+    public void park(Vehicle vehicle) throws ParkingLotException {
         if (isVehicleParked(vehicle))
             throw new ParkingLotException("Already a vehicle Parked",
                     ParkingLotException.ExceptionType.ALREADY_VEHICLE_PARKED);
@@ -74,7 +76,7 @@ public class ParkingLotSystem {
      * @param vehicle this checks the parked vehicle is same a this vehicle
      * @return true/false
      */
-    public boolean isVehicleParked(Object vehicle) {
+    public boolean isVehicleParked(Vehicle vehicle) {
         return this.vehicles.contains(vehicle);
     }
 
@@ -82,10 +84,10 @@ public class ParkingLotSystem {
      * purpose: unPark is method for unParking the Vehicle, if there is already a parked vehicle then unPark will
      * be done. otherwise throws exception.
      *
-     * @param vehicle this vehicle as an object in the unPark method, checks whether upark vehicle is same as this vehicle
+     * @param vehicle this vehicle as  Vehicle object in the unPark method, checks whether upark vehicle is same as this vehicle
      * @throws ParkingLotException if no vehicle to park
      */
-    public boolean unPark(Object vehicle) throws ParkingLotException {
+    public boolean unPark(Vehicle vehicle) throws ParkingLotException {
         if (vehicle == null)
             throw new ParkingLotException("No vehicle to UnPark", ParkingLotException.ExceptionType.VEHICLE_NOT_FOUND);
         if (this.vehicles.contains(vehicle)) {
@@ -101,21 +103,21 @@ public class ParkingLotSystem {
     /**
      * purpose: method to check vehicle is unParked or not
      *
-     * @param vehicle checks this vehicle and Object of this method are same
+     * @param vehicle checks this vehicle and Vehicle of this method are same
      *                and checks vehicle object removed from the lot
      * @return vehicle is unParked/null
      */
-    public boolean isVehicleUnParked(Object vehicle) {
+    public boolean isVehicleUnParked(Vehicle vehicle) {
         return !this.vehicles.contains(vehicle);
     }
 
     /**
      * method to search required vehicle
      *
-     * @param vehicle the object where driver wants to find the vehicle from the lot
+     * @param vehicle the Vehicle object where driver wants to find the vehicle from the lot
      * @return vehicle want to find
      */
-    public Object searchVehicle(Object vehicle) throws ParkingLotException {
+    public Vehicle searchVehicle(Vehicle vehicle) throws ParkingLotException {
         if (vehicles.contains(vehicle)) {
             return vehicle;
         }
@@ -125,10 +127,10 @@ public class ParkingLotSystem {
     /**
      * method to check the parking time and date
      *
-     * @param vehicle Object that parked in lot with particular date and time
+     * @param vehicle Vehicle object  that parked in lot with particular date and time
      * @return time and date of parked vehicle
      */
-    public static LocalDateTime parkingTime(Object vehicle) {
+    public static LocalDateTime parkingTime(Vehicle vehicle) {
         LocalDateTime present = LocalDateTime.now();
         localDateTime.put(vehicle, present);
         return present;
