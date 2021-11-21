@@ -176,15 +176,8 @@ public class ParkingLotSystemTest {
 
     @Test
     void givenAVehicle_WhenParked_ShouldReturnDateAndTime() throws ParkingLotException {
-        parkingLotSystem.park(vehicle);
-        Assertions.assertEquals(LocalDateTime.now(), ParkingLotSystem.parkingTime(vehicle));
-    }
-
-    @Test
-    void name() throws ParkingLotException {
         Vehicle vehicle = new Vehicle("Contessa", "TS-1234");
         parkingLotSystem.park(vehicle);
         Assertions.assertEquals(LocalDateTime.now(), ParkingLotSystem.parkingTime(vehicle));
-
     }
 }
