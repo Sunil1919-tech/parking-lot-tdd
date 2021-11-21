@@ -29,7 +29,6 @@ public class ParkingLotSystem {
         this.observers = new ArrayList<>();
         this.vehicles = new ArrayList<>();
         this.actualCapacity = capacity;
-
     }
 
     /**

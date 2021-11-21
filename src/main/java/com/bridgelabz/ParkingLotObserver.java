@@ -8,7 +8,7 @@ package com.bridgelabz;
  * @since 11/11/2021
  */
 public interface ParkingLotObserver {
-    public void capacityIsFull();
+     void capacityIsFull();
 
-    public void capacityIsAvailable();
+     void capacityIsAvailable();
 }

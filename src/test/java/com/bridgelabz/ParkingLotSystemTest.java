@@ -34,7 +34,6 @@ public class ParkingLotSystemTest {
         parkingLotSystem.unPark(vehicle);
         boolean isUnParked = parkingLotSystem.isVehicleUnParked(vehicle);
         Assertions.assertTrue(isUnParked);
-
     }
 
     @Test
@@ -74,7 +73,6 @@ public class ParkingLotSystemTest {
 
     @Test
     void givenAVehicleNull_whenUnParked_ShouldReturnException() {
-
         Assertions.assertThrows(ParkingLotException.class, () -> parkingLotSystem.unPark(null));
     }
 
@@ -91,7 +89,6 @@ public class ParkingLotSystemTest {
             Assertions.assertEquals(ParkingLotException.ExceptionType.PARKINGLOT_IS_FULL, e.exceptionType);
         }
     }
-
 
     @Test
     void givenParkingLot_WhenNotFull_ShouldInformOwner() {
@@ -112,9 +109,7 @@ public class ParkingLotSystemTest {
         boolean isParked1 = parkingLotSystem.isVehicleParked(vehicle);
         boolean isParked2 = parkingLotSystem.isVehicleParked(vehicle2);
         Assertions.assertTrue(isParked1 && isParked2);
-
     }
-
 
     @Test
     void givenParkingLot_WhenFull_ShouldInformTheSecurity() {
@@ -129,7 +124,6 @@ public class ParkingLotSystemTest {
             Assertions.assertEquals(ParkingLotException.ExceptionType.PARKINGLOT_IS_FULL, e.exceptionType);
         }
     }
-
 
     @Test
     void givenWhenParkingLotIsNotFull_ShouldSecurity() {
@@ -154,7 +148,6 @@ public class ParkingLotSystemTest {
         boolean capacityFull = owner.isCapacityFull();
         Assertions.assertFalse(capacityFull);
     }
-
 
     @Test
     void givenAParkingLotAttendant_whenParked_ShouldReturnTrue() throws ParkingLotException {
