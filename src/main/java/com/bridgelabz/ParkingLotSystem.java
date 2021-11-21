@@ -15,7 +15,7 @@ import java.util.Map;
  *
  ****************************************************************************************/
 public class ParkingLotSystem {
-    private static List vehicles;
+    private static List <Vehicle>  vehicles;
     private List<ParkingLotObserver> observers;
     private int actualCapacity;
     public static Map<Vehicle, LocalDateTime> localDateTime = new HashMap<>();
@@ -89,7 +89,7 @@ public class ParkingLotSystem {
      */
     public boolean unPark(Vehicle vehicle) throws ParkingLotException {
         if (vehicle == null)
-            throw new ParkingLotException("No vehicle to UnPark", ParkingLotException.ExceptionType.VEHICLE_NOT_FOUND);
+            throw  new ParkingLotException("No vehicle to UnPark", ParkingLotException.ExceptionType.VEHICLE_NOT_FOUND);
         if (this.vehicles.contains(vehicle)) {
             this.vehicles.remove(vehicle);
             for (ParkingLotObserver observer : observers) {
@@ -112,7 +112,7 @@ public class ParkingLotSystem {
     }
 
     /**
-     * method to search required vehicle
+     * method to Find  required vehicle
      *
      * @param vehicle the Vehicle object where driver wants to find the vehicle from the lot
      * @return vehicle want to find
