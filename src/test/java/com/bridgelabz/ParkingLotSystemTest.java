@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
-
 public class ParkingLotSystemTest {
     ParkingLotSystem parkingLotSystem = null;
     Vehicle vehicle = null;
@@ -183,7 +181,7 @@ public class ParkingLotSystemTest {
     }
 
     @Test
-    void givenAVehicle_whenParked_ShouldEvenlyDistribute() throws ParkingLotException {
+    void givenAVehicle_whenParked_ShouldEvenlyDistributeTwoParkingSlots() throws ParkingLotException {
         Vehicle vehicle1 =new Vehicle("HM","TS-999","red");
         Vehicle vehicle2 =new Vehicle("HM","TS-777","blue");
         Vehicle vehicle3 =new Vehicle("HM","TS-666","white");
@@ -194,5 +192,19 @@ public class ParkingLotSystemTest {
         parkingLotSystem.park(vehicle4);
         boolean isParked =parkingLotSystem.isVehicleParked(vehicle4);
         Assertions.assertTrue(isParked);
+    }
+
+    @Test
+    void givenVehicles_whenWhiteColorCarParked_ShouldReturnThePosition() throws ParkingLotException {
+        vehicle = new Vehicle("Lexus", "TS-757", "Blue");
+        Vehicle vehicle1 = new Vehicle("polo", "TS-989", "white");
+        Vehicle vehicle2 = new Vehicle("renault", "TS-982", "green");
+        Vehicle vehicle3 = new Vehicle("Honda civic", "TS-981", "yellow");
+        parkingLotSystem.park(vehicle);
+        parkingLotSystem.park(vehicle1);
+        parkingLotSystem.park(vehicle2);
+        parkingLotSystem.park(vehicle3);
+        int vehiclePosition = parkingLotSystem.getVehiclePosition(vehicle1, "white");
+        Assertions.assertEquals(2, vehiclePosition);
     }
 }

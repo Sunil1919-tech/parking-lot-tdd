@@ -143,4 +143,30 @@ public class ParkingLotSystem {
         parkingTime = dateTime.format(formatter);
         return parkingTime;
     }
+
+    /**
+     * this getVehiclePosition method to check the position of  white color vehicle from
+     * the two parking lots
+     *
+     * @param vehicle it as parameter of Vehicle Object which is parked in the parking lot
+     * @param color parameter to check the white color car in the vehicles list
+     * @throws ParkingLotException if none of the white cars are parked then throws exception
+     */
+    public int getVehiclePosition(Vehicle vehicle, String color) throws ParkingLotException {
+        if (vehicleList1.contains(vehicle)) {
+            vehicle.getColor().equals(color);
+            for (Object position : vehicleList1) {
+                if (position.equals(vehicle))
+                    return vehicleList1.indexOf(position);
+            }
+        } else if (vehicleList2.contains(vehicle)) {
+            vehicle.getColor().equals(color);
+            for (Object position : vehicleList2) {
+                if (position.equals(vehicle))
+                    return vehicleList2.indexOf(position);
+            }
+        } else
+            throw new ParkingLotException("No vehicle found", ParkingLotException.ExceptionType.VEHICLE_NOT_FOUND);
+        return 0;
+    }
 }
