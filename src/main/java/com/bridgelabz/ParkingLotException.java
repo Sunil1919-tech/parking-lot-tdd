@@ -6,7 +6,7 @@ package com.bridgelabz;
  * @author Sunil
  * @since 11/11/2021
  */
-public class ParkingLotException extends RuntimeException {
+public class ParkingLotException extends Exception {
     public ExceptionType exceptionType;
 
     //constructor initialized with variables having a message and exceptionType

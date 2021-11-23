@@ -11,15 +11,17 @@ public class Vehicle {
      *************************************************************************************/
     private final String vehicleName;
     private final String vehicleNum;
+    private final String color;
 
     /**
      * Constructor initializing the Vehicle name and Number
      * @param vehicleName to check the vehicle Name in the parked vehicle
      * @param vehicleNum to check the vehicle Number from the parking lot
      */
-    public Vehicle(String vehicleName, String vehicleNum) {
+    public Vehicle(String vehicleName, String vehicleNum, String color) {
     this.vehicleName = vehicleName;
     this.vehicleNum = vehicleNum;
+    this.color =color;
     }
 
     public String getVehicleName(){
@@ -27,5 +29,8 @@ public class Vehicle {
     }
     public String getVehicleNum(){
         return vehicleNum;
+    }
+    public String getColor(){
+        return color;
     }
 }
