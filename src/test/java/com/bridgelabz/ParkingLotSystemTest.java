@@ -204,7 +204,21 @@ public class ParkingLotSystemTest {
         parkingLotSystem.park(vehicle1);
         parkingLotSystem.park(vehicle2);
         parkingLotSystem.park(vehicle3);
-        int vehiclePosition = parkingLotSystem.getVehiclePosition(vehicle1, "white");
+        int vehiclePosition = parkingLotSystem.getVehiclePosition(vehicle1, "white", "Lexux");
         Assertions.assertEquals(2, vehiclePosition);
+    }
+
+    @Test
+    void givenVehicles_whenToyotoBlueColorParked_ShouldReturnThePosition() throws ParkingLotException {
+        vehicle = new Vehicle("Lexus", "TS-757", "Blue");
+        Vehicle vehicle1 = new Vehicle("polo", "TS-989", "white");
+        Vehicle vehicle2 = new Vehicle("renault", "TS-982", "green");
+        Vehicle vehicle3 = new Vehicle("Honda civic", "TS-981", "yellow");
+        parkingLotSystem.park(vehicle);
+        parkingLotSystem.park(vehicle1);
+        parkingLotSystem.park(vehicle2);
+        parkingLotSystem.park(vehicle3);
+        int vehiclePosition = parkingLotSystem.getVehiclePosition(vehicle, "Blue", "Lexus");
+        Assertions.assertEquals(0, vehiclePosition);
     }
 }

@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /***************************************************************************************
  * purpose --> ParkingLotSystem is class where we are going to create parkingLot system
@@ -150,17 +149,20 @@ public class ParkingLotSystem {
      *
      * @param vehicle it as parameter of Vehicle Object which is parked in the parking lot
      * @param color parameter to check the white color car in the vehicles list
+     * @param vehicleName
      * @throws ParkingLotException if none of the white cars are parked then throws exception
      */
-    public int getVehiclePosition(Vehicle vehicle, String color) throws ParkingLotException {
+    public int getVehiclePosition(Vehicle vehicle, String color, String vehicleName) throws ParkingLotException {
         if (vehicleList1.contains(vehicle)) {
             vehicle.getColor().equals(color);
+            vehicle.getVehicleName().equals(vehicleName);
             for (Object position : vehicleList1) {
                 if (position.equals(vehicle))
                     return vehicleList1.indexOf(position);
             }
         } else if (vehicleList2.contains(vehicle)) {
             vehicle.getColor().equals(color);
+            vehicle.getVehicleName().equals(vehicleName);
             for (Object position : vehicleList2) {
                 if (position.equals(vehicle))
                     return vehicleList2.indexOf(position);

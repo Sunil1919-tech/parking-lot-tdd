@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.ParkingLotSystemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-11-23T17:07:32" hostname="LAPTOP-NGQU5TVV" time="0.026">
+<testsuite name="com.bridgelabz.ParkingLotSystemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-11-23T17:38:51" hostname="LAPTOP-NGQU5TVV" time="0.062">
   <properties/>
-  <testcase name="givenVehicles_whenWhiteColorCarParked_ShouldReturnThePosition()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.026"/>
+  <testcase name="givenVehicles_whenToyotoBlueColorParked_ShouldReturnThePosition()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.062"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
