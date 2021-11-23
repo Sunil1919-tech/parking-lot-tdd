@@ -221,4 +221,11 @@ public class ParkingLotSystemTest {
         int vehiclePosition = parkingLotSystem.getVehiclePosition(vehicle, "Blue", "Lexus");
         Assertions.assertEquals(0, vehiclePosition);
     }
+
+    @Test
+    void givenVehicle_whenVehicleNumberValidated_ShouldReturnTrue() {
+        vehicle = new Vehicle("Contessa", "TS-42B805", "Black");
+        boolean isValidNumber = parkingLotSystem.validateVehicleNumber(vehicle.getVehicleNum());
+        Assertions.assertTrue(isValidNumber);
+    }
 }

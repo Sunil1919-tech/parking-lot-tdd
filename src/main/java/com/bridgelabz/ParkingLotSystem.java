@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /***************************************************************************************
  * purpose --> ParkingLotSystem is class where we are going to create parkingLot system
@@ -120,7 +122,7 @@ public class ParkingLotSystem {
     }
 
     /**
-     * method to Find  required vehicle
+     * purpose- method to Find  required vehicle that has unPark
      *
      * @param vehicle the Vehicle object where driver wants to find the vehicle from the lot
      * @return vehicle want to find
@@ -133,7 +135,7 @@ public class ParkingLotSystem {
     }
 
     /**
-     * method to get the parking time for vehicle in parking lot
+     * purpose- method to get the parking time for vehicle in parking lot
      * @return parkingTime ,the time of the slot in the parking lot
      */
     public String getParkingTime() {
@@ -144,7 +146,7 @@ public class ParkingLotSystem {
     }
 
     /**
-     * this getVehiclePosition method to check the position of  white color vehicle from
+     * purpose- this getVehiclePosition method to check the position of  white color vehicle from
      * the two parking lots
      *
      * @param vehicle it as parameter of Vehicle Object which is parked in the parking lot
@@ -170,5 +172,19 @@ public class ParkingLotSystem {
         } else
             throw new ParkingLotException("No vehicle found", ParkingLotException.ExceptionType.VEHICLE_NOT_FOUND);
         return 0;
+    }
+
+    /**
+     * purpose - to get a valid numberPlate with required pattern. Here using regex pattern
+     *
+     * @param vehicleNumber the parked vehicle number from the vehicle lists
+     * @return the number matched with the pattern requirements
+     */
+    public boolean validateVehicleNumber(String vehicleNumber) {
+        if (vehicleNumber.isEmpty())
+            return false;
+        Pattern pattern = Pattern.compile("[A-Z]{2}[ -][0-9]{1,2}[A-Z]{1,2}[0-9]{3,4}");
+        Matcher matcher = pattern.matcher(vehicleNumber);
+        return matcher.matches();
     }
 }
