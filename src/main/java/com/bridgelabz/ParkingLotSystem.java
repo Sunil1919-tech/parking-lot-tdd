@@ -32,7 +32,6 @@ public class ParkingLotSystem {
         this.parkingLot1 = new ArrayList<>();
         this.parkingLot2 = new ArrayList<>();
         this.handicappedParkingLot = new ArrayList<>();
-
     }
 
     /**

@@ -9,7 +9,7 @@ package com.bridgelabz;
 public class ParkingLotException extends RuntimeException {
     public ExceptionType exceptionType;
 
-    //constructor initialized with variables having a message and exceptionType
+    //constructor initialized with exceptionType
     public ParkingLotException( ExceptionType exceptionType) {
         this.exceptionType = exceptionType;
     }

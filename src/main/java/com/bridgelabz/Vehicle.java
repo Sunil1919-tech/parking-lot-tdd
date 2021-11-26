@@ -15,6 +15,7 @@ public class Vehicle {
     enum VehicleType{
         SMALL,MEDIUM,LARGE;
     }
+
     /**
      * purpose: Constructor initializing the vehicle parameters
      * @param vehicleName to check the vehicle Name in the parked vehicle
