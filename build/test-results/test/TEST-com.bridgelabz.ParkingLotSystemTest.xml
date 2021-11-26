@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.ParkingLotSystemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-11-23T18:00:10" hostname="LAPTOP-NGQU5TVV" time="0.032">
+<testsuite name="com.bridgelabz.ParkingLotSystemTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2021-11-26T02:22:14" hostname="LAPTOP-NGQU5TVV" time="0.056">
   <properties/>
-  <testcase name="givenVehicle_whenVehicleNumberValidated_ShouldReturnTrue()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.032"/>
+  <testcase name="givenParkingLot_WhenFull_ShouldInformTheAirportSecurity()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.027"/>
+  <testcase name="givenVehicles_whenToyotoBlueColorParked_ShouldReturnThePosition()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="whenParkingLotHasSpaceAgainAfterFull_ShouldInformTheOwner()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.002"/>
+  <testcase name="givenParkingLot_WhenNotFull_ShouldInformOwner()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="givenAVehicle_WhenDriverWantsToFind_ShouldReturnTrue()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="givenWhenParkingLotIsNotFull_ShouldSecurity()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="givenVehicle_whenVehicleNumberValidated_ShouldReturnTrue()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.002"/>
+  <testcase name="givenAVehicle_WhenParked_ShouldReturnTrue()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="givenAVehicle_WhenParked_ShouldReturnParkingDateAndTime()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.006"/>
+  <testcase name="givenAVehicle_WhenUnParked_ShouldReturnTrue()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="givenAVehicleNull_WhenUnParked_ShouldThrowException()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="givenParkingLot_WhenFull_ShouldInformToOwner()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.0"/>
+  <testcase name="givenAVehicle_WhenAlreadyParked_ShouldThrowException()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="givenCapacityIs2_ShouldAbleToPark2parkingLot()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="givenAVehicle_WhenHandicappedParked_ShouldReturnLocation()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="givenVehicles_whenWhiteColorCarParked_ShouldReturnThePosition()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
+  <testcase name="givenAVehicle_whenParked_ShouldEvenlyDistributeTwoParkingSlots()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.0"/>
+  <testcase name="givenAVehicle_WhenUnParkedAnotherVehicle_ShouldReturnException()" classname="com.bridgelabz.ParkingLotSystemTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

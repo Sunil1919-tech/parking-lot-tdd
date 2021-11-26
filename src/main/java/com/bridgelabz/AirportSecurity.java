@@ -18,7 +18,7 @@ public class AirportSecurity implements ParkingLotObserver {
     }
 
     /**
-     * this method is to check the parking lot capacity is available
+     *purpose: this method is to check the parking lot capacity is available
      */
     @Override
     public void capacityIsAvailable() {
@@ -26,7 +26,7 @@ public class AirportSecurity implements ParkingLotObserver {
     }
 
     /**
-     * this returns the boolean to check status whether parking lot is full
+     * purpose: this returns the boolean to check status whether parking lot is full
      *
      * @return parking lot full or not
      */
